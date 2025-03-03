@@ -1,22 +1,48 @@
-import { MdKeyboardArrowDown } from "react-icons/md";
+import React from "react";
+import { useController } from "react-hook-form";
 
-const SelectField = ({ label, className, icon }) => {
+const SelectField = ({
+  name,
+  control,
+  label = "",
+  options = [],
+  placeholder = "Select an option",
+  className = "",
+}) => {
+  const {
+    field,
+    fieldState: { error },
+  } = useController({
+    name,
+    control,
+    rules: { required: `${label} is required` },
+  });
   return (
-    <div>
-      <div className="relative">
-        <label className="text-black-default mb-1.5">{label}</label>
-        <select
-          className={`border rounded-md px-4 py-3 text-base font-normal text-black-300 ${className}`}
-        >
-          <option value="">Select Category</option>
-          <option value="Science">Science</option>
-          <option value="Arts">Arts</option>
-          <option value="Business">Business</option>
-        </select>
-        <MdKeyboardArrowDown className="absolute text-black-default right-4 top-11 size-6" />
-      </div>
+    <div className={`flex flex-wrap flex-col ${className ? className : ""}`}>
+      {label && (
+        <label className="select-element text-black-default mb-2">
+          {label}
+        </label>
+      )}
+      <select
+        {...field}
+        className="block w-full border rounded-md pl-4 pr-10 py-3 text-base font-normal text-black-300 relative"
+      >
+        <option value="" disabled hidden>
+          {placeholder}
+        </option>
+        {options.map((option, index) => (
+          <option key={index} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+      {error && (
+        <p className="bg-red-100 py-2.5 px-5 text-red-800 mt-2 rounded-md font-normal">
+          {error.message}
+        </p>
+      )}
     </div>
   );
 };
-
 export default SelectField;

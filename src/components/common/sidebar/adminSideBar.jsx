@@ -30,6 +30,12 @@ const AdminSidebar = () => {
 
   const faculityLinks = [{ href: "/admin/faculity", text: "Add New Member" }];
 
+  const transportLinks = [
+    { href: "/admin/transport", text: "Transport Information" },
+  ];
+
+  const hostelLinks = [{ href: "/admin/hostel", text: "Hostel Information" }];
+
   return (
     <aside className="sidebar max-w-[252px] w-full bg-primary-default shadow-side-Shadow overflow-y-scroll h-screen">
       <div className="p-5">
@@ -66,6 +72,27 @@ const AdminSidebar = () => {
               text="Faculity"
               icon={<FaChartBar />}
               subLinks={faculityLinks}
+            />
+          </li>
+          <li>
+            <SideNavLink
+              text="Transport"
+              icon={<FaChartBar />}
+              subLinks={transportLinks}
+            />
+          </li>
+          <li>
+            <SideNavLink
+              text="Hostel"
+              icon={<FaChartBar />}
+              subLinks={hostelLinks}
+            />
+          </li>
+          <li>
+            <SideNavLink
+              text="Password"
+              href="/admin/password"
+              icon={<FaChartBar />}
             />
           </li>
         </ul>

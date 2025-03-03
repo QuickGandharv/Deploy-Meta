@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import Button from "../../../../../components/ui/Button";
 import InputField from "../../../../../components/forms/inputField";
+import SelectField from "../../../../../components/forms/selectField";
+// import { useState } from "react";
 
 const PersonalInformation = () => {
   const {
@@ -16,6 +18,14 @@ const PersonalInformation = () => {
     reset();
   };
 
+  const Gender = [
+    { value: "male", label: "Male" },
+    { value: "female", label: "Female" },
+    { value: "other", label: "Other" },
+  ];
+
+  // const [setActiveTab, isSetActiveTab] = useState();
+
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="w-full mt-2.5">
@@ -27,6 +37,11 @@ const PersonalInformation = () => {
               errors.name?.type === "required" ? "Name is required" : undefined
             }
           />
+          {/* {errors && (
+            <p className="bg-red-100 py-2.5 px-5 text-red-800 mt-2 rounded-md font-normal">
+              {errors.name.message}
+            </p>
+          )} */}
           <InputField
             label="Date of Birth"
             type="date"
@@ -37,15 +52,38 @@ const PersonalInformation = () => {
                 : undefined
             }
           />
-          <InputField
-            type="number"
+          <SelectField
+            name="gender"
+            control={control}
             label="Gender"
-            {...register("roll_number", { required: true, maxLength: 25 })}
+            options={Gender}
+            placeholder="Select a Gender"
+          />
+          <InputField
+            label="Date of Joining"
+            type="date"
+            {...register("date_of_birth", { required: true })}
             error={
-              errors.roll_number?.type === "required"
-                ? "Roll No is required"
-                : errors.roll_number?.type === "maxLength"
-                ? "Roll No is not greather than 25 number"
+              errors.date_of_birth?.type === "required"
+                ? "DOB No is required"
+                : undefined
+            }
+          />
+          <InputField
+            label="Mother's Name"
+            {...register("mother_name", { required: true })}
+            error={
+              errors.mother_name?.type === "required"
+                ? "Mother’s Name is required"
+                : undefined
+            }
+          />
+          <InputField
+            label="Father's Name"
+            {...register("father_name", { required: true })}
+            error={
+              errors.father_name?.type === "required"
+                ? "Father’s Name is required"
                 : undefined
             }
           />
@@ -116,38 +154,38 @@ const PersonalInformation = () => {
                     : undefined
                 }
               />
+              <InputField
+                type="number"
+                label="Nationality"
+                {...register("mobile_1", {
+                  required: true,
+                  minLength: 12,
+                  maxLength: 12,
+                })}
+                error={
+                  errors.mobile_1?.type === "required"
+                    ? "Mobile No is required"
+                    : errors.mobile_1?.type === "minLength" ||
+                      errors.mobile_1?.type === "maxLength"
+                    ? "Mobile No must have at least 12 digit"
+                    : undefined
+                }
+              />
+              <InputField
+                label="State of Domicile"
+                {...register("state_of_domicile", { required: true })}
+                error={
+                  errors.state_of_domicile?.type === "required"
+                    ? "State is required"
+                    : undefined
+                }
+              />
             </div>
           </div>
           <InputField
             type="number"
-            label="Nationality"
-            {...register("mobile_1", {
-              required: true,
-              minLength: 12,
-              maxLength: 12,
-            })}
-            error={
-              errors.mobile_1?.type === "required"
-                ? "Mobile No is required"
-                : errors.mobile_1?.type === "minLength" ||
-                  errors.mobile_1?.type === "maxLength"
-                ? "Mobile No must have at least 12 digit"
-                : undefined
-            }
-          />
-          <InputField
-            type="number"
             label="Marital Status"
             {...register("mobile_2")}
-          />
-          <InputField
-            label="State of Domicile"
-            {...register("state_of_domicile", { required: true })}
-            error={
-              errors.state_of_domicile?.type === "required"
-                ? "State is required"
-                : undefined
-            }
           />
           <InputField
             type="number"
@@ -175,25 +213,6 @@ const PersonalInformation = () => {
                 : undefined
             }
           />
-          <InputField
-            label="Mother's Name"
-            {...register("mother_name", { required: true })}
-            error={
-              errors.mother_name?.type === "required"
-                ? "Mother’s Name is required"
-                : undefined
-            }
-          />
-
-          {/* <InputField
-            label="Enter your Graduation Details"
-            {...register("are_parents_graduates_text", { required: true })}
-            error={
-              errors.are_parents_graduates_text?.type === "required"
-                ? "Parents Graduation Details is required"
-                : undefined
-            }
-          /> */}
         </div>
         {/* {errors && (
           <p className="bg-red-100 py-2.5 px-5 text-red-800 mt-2 rounded-md font-normal"></p>
@@ -206,7 +225,12 @@ const PersonalInformation = () => {
           />
         </div> */}
       </form>
-      <div className="text-right mt-8">
+      <div className="flex justify-between mt-8">
+        <Button
+          type="submit"
+          text="Submit"
+          classname="[&]:rounded-full self-end [&]:px-10 [&]:py-2.5"
+        />
         <Button
           text="Next"
           onclick={() => setActiveTab(activeTab + 1)}

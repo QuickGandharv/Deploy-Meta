@@ -5,6 +5,9 @@ import AllClasses from "../pages/dashboard/admin/classes";
 import AllClassesForm from "../pages/dashboard/admin/classes/forms/allClassesForm";
 import AllCoursesForm from "../pages/dashboard/admin/course_Management/forms/allCoursesForm";
 import Faculity from "../pages/dashboard/admin/faculity";
+import Password from "../pages/dashboard/admin/password";
+import Hostel from "../pages/dashboard/admin/hostel";
+import Transport from "../pages/dashboard/admin/transport";
 
 const AdminRoutes = () => {
   return (
@@ -15,6 +18,9 @@ const AdminRoutes = () => {
       <Route path="/add-new-class" element={<AllClasses />} />
       <Route path="/All-classes" element={<AllClassesForm />} />
       <Route path="/faculity" element={<Faculity />} />
+      <Route path="/transport" element={<Transport />} />
+      <Route path="/hostel" element={<Hostel />} />
+      <Route path="/password" element={<Password />} />
     </Routes>
   );
 };

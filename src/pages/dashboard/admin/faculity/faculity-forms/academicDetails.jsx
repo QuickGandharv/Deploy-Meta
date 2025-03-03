@@ -1,6 +1,8 @@
 import InputField from "../../../../../components/forms/inputField";
 import { useForm } from "react-hook-form";
 import Button from "../../../../../components/ui/Button";
+import SelectField from "../../../../../components/forms/selectField";
+import FileFeild from "../../../../../components/forms/fileField";
 
 const AcademicDetails = () => {
   const {
@@ -74,9 +76,11 @@ const AcademicDetails = () => {
             </div>
           </div>
           <div className="col-span-3 mb-7">
-            <h2 className="text-black-default mb-5">Academic Details</h2>
+            <h2 className="text-black-default mb-5">
+              Related Documents (file upload)
+            </h2>
             <div className="grid grid-cols-3 gap-7">
-              <InputField
+              {/* <InputField
                 label="Resume/CV"
                 type="file"
                 {...register("highest_qualification", { required: true })}
@@ -85,36 +89,38 @@ const AcademicDetails = () => {
                     ? "Highest Qualification is required"
                     : undefined
                 }
+              /> */}
+              <FileFeild
+                label="Resume/CV"
+                id="resume"
+                {...register("resume", {
+                  required: "This Field is required",
+                  validate: (fileList) => validateFile(fileList, 2048 * 1024),
+                })}
               />
-              <InputField
+              <FileFeild
                 label="Degree Certificate"
-                type="file"
-                {...register("specialization", { required: true })}
-                error={
-                  errors.specialization?.type === "required"
-                    ? "Specialization is required"
-                    : undefined
-                }
+                id="degree-Certificate"
+                {...register("degreeCertificate", {
+                  required: "This Field is required",
+                  validate: (fileList) => validateFile(fileList, 2048 * 1024),
+                })}
               />
-              <InputField
+              <FileFeild
                 label="Transcripts"
-                type="file"
-                {...register("institution", { required: true })}
-                error={
-                  errors.institution?.type === "required"
-                    ? "Institution is required"
-                    : undefined
-                }
+                id="Transcripts"
+                {...register("transcripts", {
+                  required: "This Field is required",
+                  validate: (fileList) => validateFile(fileList, 2048 * 1024),
+                })}
               />
-              <InputField
+              <FileFeild
                 label="Other Supporting Documents (if applicable)"
-                type="file"
-                {...register("year_of_passing", { required: true })}
-                error={
-                  errors.year_of_passing?.type === "required"
-                    ? "Year of Passing is required"
-                    : undefined
-                }
+                id="other-Supporting-Documents"
+                {...register("otherSupportingDocuments", {
+                  required: "This Field is required",
+                  validate: (fileList) => validateFile(fileList, 2048 * 1024),
+                })}
               />
               <InputField
                 label="Additional Certificate (if any)"
@@ -126,6 +132,14 @@ const AcademicDetails = () => {
                     ? "Percentage is required"
                     : undefined
                 }
+              />
+              <FileFeild
+                label="Additional Certificate (if any)"
+                id="additional-Certificate"
+                {...register("additionalCertificate", {
+                  required: "This Field is required",
+                  validate: (fileList) => validateFile(fileList, 2048 * 1024),
+                })}
               />
             </div>
           </div>
