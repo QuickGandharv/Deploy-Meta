@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import InputField from "../../../../components/forms/inputField";
+import Button from "../../../../components/ui/Button";
 
 const Password = () => {
   const {
@@ -28,7 +29,13 @@ const Password = () => {
             </div>
           </form>
           <div>
-            <Button />
+            <div className="text-right mt-8">
+              <Button
+                type="submit"
+                text="Submit"
+                classname="[&]:rounded-full self-end [&]:px-10 [&]:py-2.5"
+              />
+            </div>
           </div>
         </div>
       </div>
