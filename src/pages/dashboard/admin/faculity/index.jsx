@@ -6,6 +6,10 @@ import UseTab from "../../../../components/hooks/useTab";
 import PersonalInformation from "./faculity-forms/PersonalInformation";
 import AcademicDetails from "./faculity-forms/academicDetails";
 import AccountDetails from "./faculity-forms/accountDetails";
+import HostelInformation from "./faculity-forms/hostelInformation";
+import TransportInformationForm from "./faculity-forms/transportInformationForm";
+import { RiHotelLine } from "react-icons/ri";
+import { MdEmojiTransportation } from "react-icons/md";
 
 const Faculity = () => {
   const tabsData = [
@@ -39,6 +43,27 @@ const Faculity = () => {
         <AccountDetails activeTab={activeTab} setActiveTab={setActiveTab} />
       ),
     },
+    {
+      label: {
+        icon: <RiHotelLine size={24} />,
+        text: "Hostel",
+      },
+      content: ({ activeTab, setActiveTab }) => (
+        <HostelInformation activeTab={activeTab} setActiveTab={setActiveTab} />
+      ),
+    },
+    {
+      label: {
+        icon: <MdEmojiTransportation size={22} />,
+        text: "Transport",
+      },
+      content: ({ activeTab, setActiveTab }) => (
+        <TransportInformationForm
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
+      ),
+    },
   ];
 
   return (
@@ -52,7 +77,7 @@ const Faculity = () => {
             tabs={tabsData}
             TabStyle={1}
             className="py-5"
-            tabClass="[&&]:gap-x-20 justify-center py-6 before:content-[''] before:absolute before:top-12 before:w-[45%] before:h-px before:bg-black-100"
+            tabClass="[&&]:gap-x-20 justify-center py-6 before:content-[''] before:absolute before:top-12 before:w-[80%] before:h-px before:bg-black-100"
           />
         </div>
       </div>

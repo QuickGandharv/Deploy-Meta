@@ -206,7 +206,12 @@ const AcademicDetails = () => {
           </div>
         </div>
       </form>
-      <div className="text-right mt-8">
+      <div className="flex justify-between mt-8">
+        <Button
+          type="submit"
+          text="Submit"
+          classname="[&]:rounded-full self-end [&]:px-10 [&]:py-2.5"
+        />
         <Button
           text="Next"
           onclick={() => setActiveTab(activeTab + 1)}

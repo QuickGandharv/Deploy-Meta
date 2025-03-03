@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import SelectField from "../../../../../components/forms/selectField";
+import Button from "../../../../../components/ui/Button";
 
 const TransportInformationForm = () => {
   const {
@@ -58,6 +59,13 @@ const TransportInformationForm = () => {
           />
         </div>
       </form>
+      <div className="text-right mt-8">
+        <Button
+          type="submit"
+          text="Submit"
+          classname="[&]:rounded-full self-end [&]:px-10 [&]:py-2.5"
+        />
+      </div>
     </div>
   );
 };

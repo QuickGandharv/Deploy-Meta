@@ -27,6 +27,9 @@ const Password = () => {
               <InputField label="Confirm Password" type="password" />
             </div>
           </form>
+          <div>
+            <Button />
+          </div>
         </div>
       </div>
     </div>

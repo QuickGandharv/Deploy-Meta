@@ -76,20 +76,6 @@ const AdminSidebar = () => {
           </li>
           <li>
             <SideNavLink
-              text="Transport"
-              icon={<FaChartBar />}
-              subLinks={transportLinks}
-            />
-          </li>
-          <li>
-            <SideNavLink
-              text="Hostel"
-              icon={<FaChartBar />}
-              subLinks={hostelLinks}
-            />
-          </li>
-          <li>
-            <SideNavLink
               text="Password"
               href="/admin/password"
               icon={<FaChartBar />}
