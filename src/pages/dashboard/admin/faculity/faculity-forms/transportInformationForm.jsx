@@ -58,14 +58,14 @@ const TransportInformationForm = () => {
             control={control}
           />
         </div>
+        <div className="text-right mt-8">
+          <Button
+            type="submit"
+            text="Submit"
+            classname="[&]:rounded-full self-end [&]:px-10 [&]:py-2.5"
+          />
+        </div>
       </form>
-      <div className="text-right mt-8">
-        <Button
-          type="submit"
-          text="Submit"
-          classname="[&]:rounded-full self-end [&]:px-10 [&]:py-2.5"
-        />
-      </div>
     </div>
   );
 };

@@ -2,9 +2,8 @@ import { useForm } from "react-hook-form";
 import Button from "../../../../../components/ui/Button";
 import InputField from "../../../../../components/forms/inputField";
 import SelectField from "../../../../../components/forms/selectField";
-// import { useState } from "react";
 
-const PersonalInformation = () => {
+const PersonalInformation = ({ activeTab, setActiveTab }) => {
   const {
     control,
     register,
@@ -24,8 +23,6 @@ const PersonalInformation = () => {
     { value: "other", label: "Other" },
   ];
 
-  // const [setActiveTab, isSetActiveTab] = useState();
-
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="w-full mt-2.5">
@@ -37,18 +34,48 @@ const PersonalInformation = () => {
               errors.name?.type === "required" ? "Name is required" : undefined
             }
           />
-          {/* {errors && (
-            <p className="bg-red-100 py-2.5 px-5 text-red-800 mt-2 rounded-md font-normal">
-              {errors.name.message}
-            </p>
-          )} */}
           <InputField
             label="Date of Birth"
             type="date"
-            {...register("date_of_birth", { required: true })}
+            // {...register("date_of_birth", { required: true })}
+            // error={
+            //   errors.date_of_birth?.type === "required"
+            //     ? "DOB is required"
+            //     : undefined
+            // }
+            {...register("date_of_birth", {
+              required: "Date of Birth is required",
+              validate: {
+                minAge: (value) => {
+                  const dob = new Date(value);
+                  const today = new Date();
+                  const age = today.getFullYear() - dob.getFullYear();
+                  return age >= 18 || "You must be at least 18 years old";
+                },
+                maxAge: (value) => {
+                  const dob = new Date(value);
+                  const today = new Date();
+                  const age = today.getFullYear() - dob.getFullYear();
+                  return age <= 100 || "You must be less than 100 years old";
+                },
+                validDate: (value) => {
+                  const dob = new Date(value);
+                  const today = new Date();
+                  return (
+                    dob <= today || "Date of Birth cannot be in the future"
+                  );
+                },
+              },
+            })}
             error={
               errors.date_of_birth?.type === "required"
-                ? "DOB No is required"
+                ? errors.date_of_birth.message
+                : errors.date_of_birth?.type === "minAge"
+                ? errors.date_of_birth.message
+                : errors.date_of_birth?.type === "maxAge"
+                ? errors.date_of_birth.message
+                : errors.date_of_birth?.type === "validDate"
+                ? errors.date_of_birth.message
                 : undefined
             }
           />
@@ -62,10 +89,31 @@ const PersonalInformation = () => {
           <InputField
             label="Date of Joining"
             type="date"
-            {...register("date_of_birth", { required: true })}
+            {...register("date_of_joining", {
+              required: {
+                value: true,
+                message: "Date of Joining is required",
+              },
+              validate: {
+                notInFuture: (value) => {
+                  return (
+                    new Date(value) <= new Date() ||
+                    "Date of Joining cannot be in the future"
+                  );
+                },
+                notTooOld: (value) => {
+                  const minDate = new Date();
+                  minDate.setFullYear(minDate.getFullYear() - 100); // Reasonable limit
+                  return (
+                    new Date(value) >= minDate ||
+                    "Please enter a valid Date of Joining"
+                  );
+                },
+              },
+            })}
             error={
               errors.date_of_birth?.type === "required"
-                ? "DOB No is required"
+                ? "Date of Joining is required"
                 : undefined
             }
           />
@@ -89,28 +137,49 @@ const PersonalInformation = () => {
           />
           <InputField
             label="Email Address"
-            {...register("nationality", { required: true })}
+            {...register("email", {
+              required: {
+                value: true,
+                message: "Email is required",
+              },
+              pattern: {
+                value: /^.+@.+\..+$/,
+                message: "Please enter a valid email address",
+              },
+            })}
             error={
-              errors.nationality?.type === "required"
-                ? "Nationality is required"
+              errors.email?.type === "required"
+                ? "Email is required"
                 : undefined
             }
           />
           <InputField
             label="Phone Number"
-            {...register("religion", { required: true })}
+            {...register("phone_number", {
+              required: "Phone number is required",
+              pattern: {
+                value: /^[0-9]{10}$/,
+                message: "Please enter a valid 10-digit phone number",
+              },
+            })}
             error={
-              errors.religion?.type === "required"
-                ? "Religion is required"
+              errors.phone_number?.type === "required"
+                ? "Phone Number is required"
                 : undefined
             }
           />
           <InputField
             label="Alternate Phone Number (Optional)"
-            {...register("correspondence_address", { required: true })}
+            {...register("alternate_phone", {
+              required: false,
+              pattern: {
+                value: /^[0-9]{10}$/,
+                message: "Please enter a valid 10-digit phone number",
+              },
+            })}
             error={
-              errors.correspondence_address?.type === "required"
-                ? "Correspondence Address is required"
+              errors.alternate_phone?.type === "required"
+                ? "Please enter a valid 10-digit phone number"
                 : undefined
             }
           />
@@ -119,10 +188,20 @@ const PersonalInformation = () => {
             <div className="col-span-3 grid grid-cols-3 gap-7">
               <InputField
                 label="Street"
-                {...register("state", { required: true })}
+                {...register("street", {
+                  required: "Street address is required",
+                  minLength: {
+                    value: 3,
+                    message: "Street address is too short",
+                  },
+                  maxLength: {
+                    value: 100,
+                    message: "Street address is too long",
+                  },
+                })}
                 error={
-                  errors.state?.type === "required"
-                    ? "State is required"
+                  errors.street?.type === "required"
+                    ? "Street is required"
                     : undefined
                 }
               />
@@ -137,37 +216,35 @@ const PersonalInformation = () => {
               />
               <InputField
                 label="State"
-                {...register("email", { required: true })}
+                {...register("state", { required: true })}
                 error={
-                  errors.email?.type === "required"
-                    ? "Email is required"
+                  errors.state?.type === "required"
+                    ? "state is required"
                     : undefined
                 }
               />
               <InputField
-                type="City"
+                type="Zip Code"
                 label="Zip Code"
-                {...register("pin", { required: true })}
+                {...register("Zipcode", { required: true })}
                 error={
-                  errors.pin?.type === "required"
-                    ? "Pin is required"
+                  errors.Zipcode?.type === "required"
+                    ? "Zip Code is required"
                     : undefined
                 }
               />
               <InputField
-                type="number"
+                type="text"
                 label="Nationality"
-                {...register("mobile_1", {
-                  required: true,
-                  minLength: 12,
-                  maxLength: 12,
+                {...register("nationality", {
+                  required: {
+                    value: true,
+                    message: "Nationality is required",
+                  },
                 })}
                 error={
-                  errors.mobile_1?.type === "required"
-                    ? "Mobile No is required"
-                    : errors.mobile_1?.type === "minLength" ||
-                      errors.mobile_1?.type === "maxLength"
-                    ? "Mobile No must have at least 12 digit"
+                  errors.nationality?.type === "required"
+                    ? "Nationality is required"
                     : undefined
                 }
               />
@@ -183,33 +260,44 @@ const PersonalInformation = () => {
             </div>
           </div>
           <InputField
-            type="number"
+            type="text"
             label="Marital Status"
-            {...register("mobile_2")}
-          />
-          <InputField
-            type="number"
-            label="Emergency Contact Name"
-            {...register("aadhar_no", {
-              required: true,
-              minLength: 12,
-              maxLength: 12,
+            {...register("marital_status", {
+              required: {
+                value: true,
+                message: "Marital Status is required",
+              },
             })}
             error={
-              errors.aadhar_no?.type === "required"
-                ? "Aadhar Number is required"
-                : errors.aadhar_no?.type === "minLength" ||
-                  errors.aadhar_no?.type === "maxLength"
-                ? "The aadhar no field must have at least 12 digits"
+              errors.marital_status?.type === "required"
+                ? "Marital Status is required"
+                : undefined
+            }
+          />
+          <InputField
+            type="text"
+            label="Emergency Contact Name"
+            {...register("emergency_contact_name", {
+              required: true,
+            })}
+            error={
+              errors.emergency_contact_name?.type === "required"
+                ? "Emergency Contact Name is required"
                 : undefined
             }
           />
           <InputField
             label="Emergency Contact Number"
-            {...register("father_name", { required: true })}
+            {...register("emergency_contact_number", {
+              required: "Emergency Contact Number is required",
+              pattern: {
+                value: /^[0-9]{10}$/, // Example: Validates a 10-digit phone number
+                message: "Please enter a valid 10-digit phone number",
+              },
+            })}
             error={
-              errors.father_name?.type === "required"
-                ? "Father’s Name is required"
+              errors.emergency_contact_number?.type === "required"
+                ? "Emergency Number is required"
                 : undefined
             }
           />
@@ -217,26 +305,20 @@ const PersonalInformation = () => {
         {/* {errors && (
           <p className="bg-red-100 py-2.5 px-5 text-red-800 mt-2 rounded-md font-normal"></p>
         )} */}
-        {/* <div className="text-left mt-8">
+        <div className="flex justify-between mt-8">
           <Button
             type="submit"
             text="Submit"
             classname="[&]:rounded-full self-end [&]:px-10 [&]:py-2.5"
           />
-        </div> */}
+          <Button
+            text="Next"
+            type="button"
+            onclick={() => setActiveTab(activeTab + 1)}
+            classname="[&]:rounded-full self-end [&]:px-10 [&]:py-2.5"
+          />
+        </div>
       </form>
-      <div className="flex justify-between mt-8">
-        <Button
-          type="submit"
-          text="Submit"
-          classname="[&]:rounded-full self-end [&]:px-10 [&]:py-2.5"
-        />
-        <Button
-          text="Next"
-          onclick={() => setActiveTab(activeTab + 1)}
-          classname="[&]:rounded-full self-end [&]:px-10 [&]:py-2.5"
-        />
-      </div>
     </>
   );
 };

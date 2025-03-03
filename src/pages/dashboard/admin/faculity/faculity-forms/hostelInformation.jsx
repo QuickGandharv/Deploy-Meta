@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import SelectField from "../../../../../components/forms/selectField";
 import Button from "../../../../../components/ui/Button";
 
-const HostelInformation = () => {
+const HostelInformation = ({ activeTab, setActiveTab }) => {
   const {
     control,
     register,
@@ -46,19 +46,19 @@ const HostelInformation = () => {
             control={control}
           />
         </div>
+        <div className="flex justify-between mt-8">
+          <Button
+            type="submit"
+            text="Submit"
+            classname="[&]:rounded-full self-end [&]:px-10 [&]:py-2.5"
+          />
+          <Button
+            text="Next"
+            onclick={() => setActiveTab(activeTab + 1)}
+            classname="[&]:rounded-full self-end [&]:px-10 [&]:py-2.5"
+          />
+        </div>
       </form>
-      <div className="flex justify-between mt-8">
-        <Button
-          type="submit"
-          text="Submit"
-          classname="[&]:rounded-full self-end [&]:px-10 [&]:py-2.5"
-        />
-        <Button
-          text="Next"
-          onclick={() => setActiveTab(activeTab + 1)}
-          classname="[&]:rounded-full self-end [&]:px-10 [&]:py-2.5"
-        />
-      </div>
     </div>
   );
 };
