@@ -17,12 +17,14 @@ const HostelInformation = ({ activeTab, setActiveTab }) => {
   };
 
   const Hostel = [
+    { value: "select hostel", label: "Select Hostel" },
     { value: "phoenix residence", label: "Phoenix Residence" },
     { value: "tranquil haven", label: "Tranquil Haven" },
     { value: "radient tower", label: "Radient Tower" },
   ];
 
   const RoomNumber = [
+    { value: "select room number", label: "Select Room Number" },
     { value: "20", label: "20" },
     { value: "22", label: "22" },
     { value: "34", label: "34" },

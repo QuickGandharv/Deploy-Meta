@@ -34,7 +34,10 @@ const AdminSidebar = () => {
     { href: "/admin/transport", text: "Transport Information" },
   ];
 
-  const hostelLinks = [{ href: "/admin/hostel", text: "Hostel Information" }];
+  const hostelLinks = [
+    { href: "/admin/hostel-list", text: "Hostel List" },
+    { href: "/admin/hostel-rooms", text: "Hostel Rooms" },
+  ];
 
   return (
     <aside className="sidebar max-w-[252px] w-full bg-primary-default shadow-side-Shadow overflow-y-scroll h-screen">
@@ -79,6 +82,13 @@ const AdminSidebar = () => {
               text="Password"
               href="/admin/password"
               icon={<FaChartBar />}
+            />
+          </li>
+          <li>
+            <SideNavLink
+              text="Hostel"
+              icon={<FaChartBar />}
+              subLinks={hostelLinks}
             />
           </li>
         </ul>

@@ -6,6 +6,8 @@ import AllClassesForm from "../pages/dashboard/admin/classes/forms/allClassesFor
 import AllCoursesForm from "../pages/dashboard/admin/course_Management/forms/allCoursesForm";
 import Faculity from "../pages/dashboard/admin/faculity";
 import Password from "../pages/dashboard/admin/password";
+import HostelList from "../pages/dashboard/admin/hostel/hostel-Forms/hostelList";
+import HostelRooms from "../pages/dashboard/admin/hostel/hostel-Forms/hostel-rooms";
 
 const AdminRoutes = () => {
   return (
@@ -17,6 +19,8 @@ const AdminRoutes = () => {
       <Route path="/All-classes" element={<AllClassesForm />} />
       <Route path="/faculity" element={<Faculity />} />
       <Route path="/password" element={<Password />} />
+      <Route path="/hostel-list" element={<HostelList />} />
+      <Route path="/hostel-rooms" element={<HostelRooms />} />
     </Routes>
   );
 };

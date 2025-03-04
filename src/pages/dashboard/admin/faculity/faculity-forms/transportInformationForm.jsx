@@ -17,18 +17,21 @@ const TransportInformationForm = () => {
   };
 
   const Route = [
+    { value: "select route", label: "Select Route" },
     { value: "amritsar", label: "Amritsar" },
     { value: "ludhiana", label: "Ludhiana" },
     { value: "jalandhar", label: "Jalandhar" },
   ];
 
   const vehicleNumber = [
+    { value: "select vehicle number", label: "Select Vehicle Number" },
     { value: "pb-10-0001", label: "PB-10-0001" },
     { value: "pb-10-0002", label: "PB-10-0002" },
     { value: "pb-10-0003", label: "PB-10-0003" },
   ];
 
   const checkPoint = [
+    { value: "select Check Point", label: "Select Check Point" },
     { value: "jalandhar bypass", label: "Jalandhar Bypass" },
     { value: "samrala chownk", label: "Samrala Chownk" },
     { value: "clock tower", label: "Clock Tower" },
