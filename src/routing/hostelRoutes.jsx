@@ -1,6 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import HostelList from "../pages/dashboard/admin/hostel/hostel-Forms/hostelList";
-import HostelRooms from "../pages/dashboard/admin/hostel/hostel-Forms/hostel-rooms";
 import HostelDashboard from "../pages/dashboard/admin/hostel/dashboard";
 import RoomManagementPage from "../pages/dashboard/admin/hostel/Rooms/roomManagementPage";
 import ResidentManagementPage from "../pages/dashboard/admin/hostel/Residents/residentManagementPage";
@@ -17,8 +15,6 @@ const HostelRoutes = () => {
   return (
     <Routes>
       <Route path="" element={<HostelDashboard />} />
-      {/* <Route path="/hostel-list" element={<HostelList />} /> */}
-      {/* <Route path="/hostel-rooms" element={<HostelRooms />} /> */}
       <Route path="/rooms" element={<RoomManagementPage />} />
       <Route path="/residents" element={<ResidentManagementPage />} />
       <Route path="/staff" element={<StaffManagementPage />} />
