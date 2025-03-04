@@ -19,16 +19,16 @@ const HostelRoutes = () => {
       <Route path="" element={<HostelDashboard />} />
       {/* <Route path="/hostel-list" element={<HostelList />} /> */}
       {/* <Route path="/hostel-rooms" element={<HostelRooms />} /> */}
-      <Route path="rooms" element={<RoomManagementPage />} />
-      <Route path="residents" element={<ResidentManagementPage />} />
-      <Route path="staff" element={<StaffManagementPage />} />
-      <Route path="fees" element={<FeesManagementPage />} />
-      <Route path="maintenance" element={<MaintenanceManagementPage />} />
-      <Route path="inventory" element={<InventoryManagementPage />} />
-      <Route path="complaints" element={<ComplaintManagementPage />} />
-      <Route path="reports" element={<ReportsManagementPage />} />
-      <Route path="notifications" element={<NotificationsManagementPage />} />
-      <Route path="settings" element={<SettingsManagementPage />} />
+      <Route path="/rooms" element={<RoomManagementPage />} />
+      <Route path="/residents" element={<ResidentManagementPage />} />
+      <Route path="/staff" element={<StaffManagementPage />} />
+      <Route path="/fees" element={<FeesManagementPage />} />
+      <Route path="/maintenance" element={<MaintenanceManagementPage />} />
+      <Route path="/inventory" element={<InventoryManagementPage />} />
+      <Route path="/complaints" element={<ComplaintManagementPage />} />
+      <Route path="/reports" element={<ReportsManagementPage />} />
+      <Route path="/notifications" element={<NotificationsManagementPage />} />
+      <Route path="/settings" element={<SettingsManagementPage />} />
     </Routes>
   );
 };
