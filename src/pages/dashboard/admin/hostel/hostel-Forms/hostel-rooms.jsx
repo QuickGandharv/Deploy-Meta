@@ -1,4 +1,5 @@
 import { BsThreeDots } from "react-icons/bs";
+import Button from "../../../../../components/ui/Button";
 
 const HostelRooms = () => {
   return (
@@ -6,6 +7,7 @@ const HostelRooms = () => {
       <div className="recent-applications bg-white-default border-2 border-white-default rounded-2xl pb-6">
         <div className="flex justify-between items-center bg-white-default p-5 rounded-lg">
           <h2 className="text-black-default">Hostel Rooms</h2>
+          <Button text="Add Room" type="button" />
           {/* <OutlineButton
             text="View All"
             classname="text-primary-default border-primary-default px-6 py-2"

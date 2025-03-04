@@ -1,11 +1,14 @@
 import { BsThreeDots } from "react-icons/bs";
+import Button from "../../../../../components/ui/Button";
 
-const HostelList = () => {
+const RoomManagementPage = () => {
   return (
     <>
       <div className="recent-applications bg-white-default border-2 border-white-default rounded-2xl pb-6">
         <div className="flex justify-between items-center bg-white-default p-5 rounded-lg">
-          <h2 className="text-black-default">Hostel List</h2>
+          <h2 className="text-black-default">Hostel Rooms</h2>
+          <h2 className="text-black-default">Room Management Page</h2>
+          <Button text="Add Room" type="button" />
           {/* <OutlineButton
             text="View All"
             classname="text-primary-default border-primary-default px-6 py-2"
@@ -19,16 +22,22 @@ const HostelList = () => {
                   Id
                 </th>
                 <th className="text-black-default text-base font-medium px-5 py-3 text-left">
+                  Room No
+                </th>
+                <th className="text-black-default text-base font-medium px-5 py-3 text-left">
                   Hostel Name
                 </th>
                 <th className="text-black-default text-base font-medium px-5 py-3 text-left">
-                  Hostel Type
+                  Room Type
                 </th>
                 <th className="text-black-default text-base font-medium px-5 py-3 text-left">
-                  Address
+                  No of Bed
                 </th>
                 <th className="text-black-default text-base font-medium px-5 py-3 text-left">
-                  Description
+                  Cost Per Bed
+                </th>
+                <th className="text-black-default text-base font-medium px-5 py-3 text-left">
+                  Action
                 </th>
               </tr>
             </thead>
@@ -38,34 +47,45 @@ const HostelList = () => {
                   001
                 </td>
                 <td className="text-black-default text-left text-base font-medium px-5 py-3">
+                  A1
+                </td>
+                <td className="text-black-default text-base font-normal px-5 py-3">
                   Phoenix Residence
                 </td>
                 <td className="text-black-default text-base font-normal px-5 py-3">
-                  Boys
+                  One Bed
                 </td>
                 <td className="text-black-default text-base font-normal px-5 py-3">
-                  25 Crowfield Road, Phoenix
+                  1
                 </td>
                 <td className="text-black-default text-base font-normal px-5 py-3">
-                  Rising to nurture young minds
+                  $200
+                </td>
+                <td className="text-base text-left font-normal text-black-default px-5 py-3">
+                  <BsThreeDots className="text-black-200 text-2xl" />
                 </td>
               </tr>
-
               <tr className="border-b">
                 <td className="text-black-default text-left text-base font-medium px-5 py-3">
                   002
                 </td>
                 <td className="text-black-default text-left text-base font-medium px-5 py-3">
+                  A2
+                </td>
+                <td className="text-black-default text-base font-normal px-5 py-3">
                   Tranquil Haven
                 </td>
                 <td className="text-black-default text-base font-normal px-5 py-3">
-                  Girls
+                  One Bed Ac
                 </td>
                 <td className="text-black-default text-base font-normal px-5 py-3">
-                  81 Hartland Avenue, Milwaukee
+                  1
                 </td>
                 <td className="text-black-default text-base font-normal px-5 py-3">
-                  Rising to nurture young minds
+                  $300
+                </td>
+                <td className="text-base text-left font-normal text-black-default px-5 py-3">
+                  <BsThreeDots className="text-black-200 text-2xl" />
                 </td>
               </tr>
             </tbody>
@@ -76,4 +96,4 @@ const HostelList = () => {
   );
 };
 
-export default HostelList;
+export default RoomManagementPage;

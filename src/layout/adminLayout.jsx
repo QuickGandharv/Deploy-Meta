@@ -1,13 +1,13 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/common/header";
 import Footer from "../components/common/footer";
-import AdminSidebar from "../components/common/sidebar/adminSideBar";
+import MainSidebar from "../components/common/sidebar/admin/index";
 
 const AdminLayout = () => {
   return (
     <div className="flex h-screen overflow-hidden">
       {/* Admin Sidebar  */}
-      <AdminSidebar />
+      <MainSidebar />
 
       {/* Content Area - Start */}
       <div className="flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
