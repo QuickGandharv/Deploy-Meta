@@ -11,7 +11,11 @@ import {
 } from "react-icons/fa";
 import SubSideNavLink from "../../../ui/SubSideNavLink";
 import { useState } from "react";
-import { IoIosArrowForward, IoIosWarning } from "react-icons/io";
+import {
+  IoIosArrowBack,
+  IoIosArrowForward,
+  IoIosWarning,
+} from "react-icons/io";
 import { IoBedSharp, IoDocuments } from "react-icons/io5";
 import { HiMiniUserGroup } from "react-icons/hi2";
 import { GrUserWorker } from "react-icons/gr";
@@ -30,7 +34,7 @@ const HostelSidebar = () => {
   const NavItems = [
     {
       text: "Back to Dashboard",
-      icon: <FaHome />,
+      icon: <IoIosArrowBack />,
       href: "/admin",
     },
     {

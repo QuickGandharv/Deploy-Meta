@@ -1,0 +1,40 @@
+{
+  "rooms": [
+    {
+      "id": 1,
+      "roomNo": "101",
+      "block": "A",
+      "roomType": "Single",
+      "noOfBed": 1,
+      "cost": 40.00,
+      "status": "vacant"
+    },
+    {
+      "id": 2,
+      "roomNo": "102",
+      "block": "A",
+      "roomType": "Double",
+      "noOfBed": 2,
+      "cost": 60.00,
+      "status": "occupied"
+    },
+    {
+      "id": 3,
+      "roomNo": "201",
+      "block": "B",
+      "roomType": "Dormitory",
+      "noOfBed": 4,
+      "cost": 25.00,
+      "status": "vacant"
+    },
+    {
+      "id": 4,
+      "roomNo": "202",
+      "block": "B",
+      "roomType": "Double",
+      "noOfBed": 2,
+      "cost": 55.00,
+      "status": "underMaintenance"
+    }
+  ]
+}
