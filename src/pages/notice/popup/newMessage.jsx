@@ -68,7 +68,7 @@ const NewMessage = ({ closeButton }) => {
 
   return (
     <>
-      <div className="max-w-96 w-full mx-auto bg-white-default shadow-flex rounded-lg p-5 overflow-y-scroll h-[500px]">
+      <div className="max-w-2xl w-full mx-auto bg-white-default shadow-flex rounded-lg p-5 overflow-y-scroll h-[500px]">
         <div className="flex justify-end">
           <Button
             classname="text-black-default [&]:py-1 [&]:px-1"
