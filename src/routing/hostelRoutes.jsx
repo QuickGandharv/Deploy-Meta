@@ -5,7 +5,7 @@ import ResidentManagementPage from "../pages/dashboard/admin/hostel/Residents/re
 import StaffManagementPage from "../pages/dashboard/admin/hostel/Staff/staffManagementPage";
 import FeesManagementPage from "../pages/dashboard/admin/hostel/Fees/feesManagementPage";
 import MaintenanceManagementPage from "../pages/dashboard/admin/hostel/Maintenance/maintenanceManagementpage";
-import InventoryManagementPage from "../pages/dashboard/admin/hostel/Inventory/inventoryManagementpage";
+import InventoryManagementPage from "../pages/dashboard/admin/hostel/Inventory/inventoryManagementPage";
 import ComplaintManagementPage from "../pages/dashboard/admin/hostel/Complaints/complaintsManagementPage";
 import ReportsManagementPage from "../pages/dashboard/admin/hostel/Reports/ReportsManagementPage";
 import NotificationsManagementPage from "../pages/dashboard/admin/hostel/Notifications/notificationsManagementPage";
