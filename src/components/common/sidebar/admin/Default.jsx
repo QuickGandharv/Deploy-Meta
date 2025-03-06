@@ -8,6 +8,7 @@ import {
   FaHome,
   FaHotel,
   FaUserGraduate,
+  FaUsers,
 } from "react-icons/fa";
 import SubSideNavLink from "../../../ui/SubSideNavLink";
 import { useState } from "react";
@@ -17,6 +18,7 @@ import { LiaHotelSolid } from "react-icons/lia";
 import { IoSchoolSharp } from "react-icons/io5";
 import { TbLockPassword } from "react-icons/tb";
 import { RiLockPasswordFill } from "react-icons/ri";
+import { PiUsersThreeFill } from "react-icons/pi";
 
 const AdminSidebar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -61,6 +63,17 @@ const AdminSidebar = () => {
       text: "Hostel",
       icon: <FaHotel />,
       href: "/admin/hostel",
+    },
+    {
+      text: "Users",
+      icon: <FaUsers />,
+      subLinks: [
+        { href: "/admin/all-users", text: "All Users" },
+        { href: "/admin/add-new-user", text: "Add New User" },
+        { href: "/admin/user-roles", text: "Roles" },
+        { href: "/admin/user-permissions", text: "Permissions" },
+        { href: "/admin/user-leaves", text: "Leaves" },
+      ],
     },
   ];
 

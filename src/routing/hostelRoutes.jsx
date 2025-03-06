@@ -10,12 +10,14 @@ import ComplaintManagementPage from "../pages/dashboard/admin/hostel/Complaints/
 import ReportsManagementPage from "../pages/dashboard/admin/hostel/Reports/ReportsManagementPage";
 import NotificationsManagementPage from "../pages/dashboard/admin/hostel/Notifications/notificationsManagementPage";
 import SettingsManagementPage from "../pages/dashboard/admin/hostel/Settings/settingsManagementPage";
+import BuildingsManagementPage from "../pages/dashboard/admin/hostel/Buildings/buildingsManagementPage";
 
 const HostelRoutes = () => {
   return (
     <Routes>
       <Route path="" element={<HostelDashboard />} />
       <Route path="/rooms" element={<RoomManagementPage />} />
+      <Route path="/buildings" element={<BuildingsManagementPage />} />
       <Route path="/residents" element={<ResidentManagementPage />} />
       <Route path="/staff" element={<StaffManagementPage />} />
       <Route path="/fees" element={<FeesManagementPage />} />

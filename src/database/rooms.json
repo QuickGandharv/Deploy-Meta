@@ -35,6 +35,15 @@
       "noOfBed": 2,
       "cost": 55.00,
       "status": "underMaintenance"
+    },
+    {
+      "id": 5,
+      "roomNo": "204",
+      "block": "A",
+      "roomType": "Double",
+      "noOfBed": 2,
+      "cost": 55.00,
+      "status": "occupied"
     }
   ]
 }

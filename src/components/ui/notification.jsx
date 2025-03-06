@@ -13,7 +13,6 @@ const Notification = () => {
             Notifications
           </h1>
         </div>
-        return (
         <>
           <li className="mx-4">
             <div className="flex items-center gap-4 py-3 px-4 my-3 bg-white-300 rounded-md justify-between">
@@ -22,8 +21,12 @@ const Notification = () => {
                   <MdNotifications size={20} className="text-purple-default" />
                 </span>
                 <div>
-                  <p className="text-base font-medium text-black-default uppercase"></p>
-                  <span className="text-sm break-all text-black-200 line-clamp-1"></span>
+                  <p className="text-base font-medium text-black-default uppercase">
+                    Notification -1
+                  </p>
+                  <span className="text-sm break-all text-black-200 line-clamp-1">
+                    Hello Students .....
+                  </span>
                 </div>
               </div>
               <span className="text-black-default cursor-pointer">
@@ -39,7 +42,6 @@ const Notification = () => {
             />
           </div>
         </>
-        );
       </ul>
     </div>
   );

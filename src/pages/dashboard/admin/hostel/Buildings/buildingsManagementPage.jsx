@@ -1,13 +1,13 @@
 import { BsThreeDots } from "react-icons/bs";
 import Button from "../../../../../components/ui/Button";
-import Room from "../../../../../database/rooms.json";
+import Building from "../../../../../database/buildings.json";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../../../../../tailwind.config";
 import { useState } from "react";
-import AddRoomPopup from "./popup/addRoomPopup";
+import AddBuildingPopup from "./popup/addBuildingPopup";
 
-const RoomManagementPage = () => {
-  const rooms = Room.rooms;
+const BuildingsManagementPage = () => {
+  const buildings = Building.buildings;
 
   const fullConfig = resolveConfig(tailwindConfig);
 
@@ -28,50 +28,51 @@ const RoomManagementPage = () => {
     <>
       <div className="recent-applications bg-white-default border-2 border-white-default rounded-2xl pb-6 relative">
         <div className="flex justify-between items-center bg-white-default p-5 rounded-lg">
-          <h2 className="text-black-default">Rooms</h2>
+          <h2 className="text-black-default">Buildings</h2>
           <Button
-            text="Add Room"
+            text="Add Building"
             type="button"
             onclick={() => setAddRoom(true)}
           />
         </div>
         {addRoom && (
           <div
-            className="text-white-default fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center transition-opacity duration-300 h-full w-full bg-black-default/50"
+            className="text-white-default fixed z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center transition-opacity duration-300 bg-black-default/50 w-full h-full"
             id="popup"
           >
-            <AddRoomPopup closeButton={setAddRoom} />
+            <AddBuildingPopup closeButton={setAddRoom} />
           </div>
         )}
-        {/* {addRoom && (
-          <div className="fixed inset-0 bg-black-default opacity-50 flex items-start justify-end z-50">
-            <AddRoomPopup onClose={() => setAddRoom(false)} />
-          </div>
-        )} */}
-        <div className="table w-full">
+        <div className="table w-full relative">
           <table className="w-full">
             <thead className="bg-white-300">
               <tr>
                 <th className="text-black-default text-base font-medium px-5 py-3 text-left">
-                  Id
+                  ID
                 </th>
                 <th className="text-black-default text-base font-medium px-5 py-3 text-left">
-                  Room No
+                  Building Name
                 </th>
                 <th className="text-black-default text-base font-medium px-5 py-3 text-left">
-                  Block
+                  No of Floors
                 </th>
                 <th className="text-black-default text-base font-medium px-5 py-3 text-left">
-                  Room Type
+                  No of Rooms
                 </th>
                 <th className="text-black-default text-base font-medium px-5 py-3 text-left">
-                  No of Bed
+                  Electricity Reading
                 </th>
                 <th className="text-black-default text-base font-medium px-5 py-3 text-left">
-                  Cost
+                  Staff Members
                 </th>
                 <th className="text-black-default text-base font-medium px-5 py-3 text-left">
-                  Status
+                  Security Guards
+                </th>
+                <th className="text-black-default text-base font-medium px-5 py-3 text-left">
+                  Food Vendors
+                </th>
+                <th className="text-black-default text-base font-medium px-5 py-3 text-left">
+                  cost
                 </th>
                 <th className="text-black-default text-base font-medium px-5 py-3 text-left">
                   Action
@@ -79,40 +80,34 @@ const RoomManagementPage = () => {
               </tr>
             </thead>
             <tbody>
-              {rooms.map((room, index) => (
+              {buildings.map((building, index) => (
                 <tr key={index} className="border-b">
                   <td className="text-black-default text-left text-base font-medium px-5 py-3">
-                    {room.id}
+                    {building.buildingId}
                   </td>
                   <td className="text-black-default text-left text-base font-medium px-5 py-3">
-                    {room.roomNo}
+                    {building.buildingName}
                   </td>
                   <td className="text-black-default text-left text-base font-medium px-5 py-3">
-                    {room.block}
+                    {building.floorNumber}
                   </td>
                   <td className="text-black-default text-left text-base font-medium px-5 py-3">
-                    {room.roomType}
+                    {building.roomName}
                   </td>
                   <td className="text-black-default text-left text-base font-medium px-5 py-3">
-                    {room.noOfBed}
+                    {building.electricityMeterReading}
                   </td>
                   <td className="text-black-default text-left text-base font-medium px-5 py-3">
-                    {room.cost}
+                    {building.staffMembers}
                   </td>
                   <td className="text-black-default text-left text-base font-medium px-5 py-3">
-                    <div
-                      className="rounded-full w-fit"
-                      style={{
-                        backgroundColor: StatusLightColors[room.status],
-                      }}
-                    >
-                      <p
-                        className="capitalize text-sm font-medium px-3 py-1"
-                        style={{ color: StatusColors[room.status] }}
-                      >
-                        {room.status}
-                      </p>
-                    </div>
+                    {building.securityGuards}
+                  </td>
+                  <td className="text-black-default text-left text-base font-medium px-5 py-3">
+                    {building.foodVendors}
+                  </td>
+                  <td className="text-black-default text-left text-base font-medium px-5 py-3">
+                    {building.cost}
                   </td>
                   <td className="text-black-default text-left text-base font-medium px-5 py-3">
                     <BsThreeDots size={24} className="text-gray-500" />
@@ -127,4 +122,4 @@ const RoomManagementPage = () => {
   );
 };
 
-export default RoomManagementPage;
+export default BuildingsManagementPage;

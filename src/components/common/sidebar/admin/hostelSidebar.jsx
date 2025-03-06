@@ -23,6 +23,8 @@ import { MdOutlineCurrencyRupee, MdOutlineSettings } from "react-icons/md";
 import { CiBoxList } from "react-icons/ci";
 import { FaGears } from "react-icons/fa6";
 import { LiaHotelSolid } from "react-icons/lia";
+import { PiBuildingsFill } from "react-icons/pi";
+import { TbReportSearch } from "react-icons/tb";
 
 const HostelSidebar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -41,6 +43,11 @@ const HostelSidebar = () => {
       text: "Hostel",
       href: "/admin/hostel",
       icon: <FaHotel />,
+    },
+    {
+      text: "Buildings",
+      href: "/admin/hostel/buildings",
+      icon: <PiBuildingsFill />,
     },
     {
       text: "Rooms",
@@ -79,7 +86,7 @@ const HostelSidebar = () => {
     },
     {
       text: "Reports",
-      icon: <CiBoxList />,
+      icon: <TbReportSearch />,
       href: "/admin/hostel/reports",
     },
     {

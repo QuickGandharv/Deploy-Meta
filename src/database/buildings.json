@@ -1,0 +1,48 @@
+{
+  "buildings": [
+    {
+      "buildingId": "1",
+      "buildingName": "Block - A",
+      "floorNumber": 1,
+      "roomName": "101",
+      "electricityMeterReading": 1500.75,
+      "staffMembers": ["Alice Brown, ", "Bob Green"],
+      "securityGuards": ["Charlie Black, ", "Diana White"],
+      "foodVendors": ["Tasty Bites, ", "Quick Snacks"],
+      "cost": 1200
+    },
+    {
+      "buildingId": "2",
+      "buildingName": "Block - B",
+      "floorNumber": 1,
+      "roomName": "102",
+      "electricityMeterReading": 1600.25,
+      "staffMembers": ["Alice Brown, ", "Bob Green"],
+      "securityGuards": ["Charlie Black, ", "Diana White"],
+      "foodVendors": ["Tasty Bites, ", "Quick Snacks"],
+      "cost": 1250
+    },
+    {
+      "buildingId": "3",
+      "buildingName": "Block - C",
+      "floorNumber": 2,
+      "roomName": "201",
+      "electricityMeterReading": 1200.50,
+      "staffMembers": ["Alice Brown, ", "Bob Green"],
+      "securityGuards": ["Charlie Black, ", "Diana White"],
+      "foodVendors": ["Tasty Bites, ", "Quick Snacks"],
+      "cost": 1300
+    },
+    {
+      "buildingId": "4",
+      "buildingName": "Block - D",
+      "floorNumber": 2,
+      "roomName": "202",
+      "electricityMeterReading": 1300.00,
+      "staffMembers": ["Alice Brown, ", "Bob Green"],
+      "securityGuards": ["Charlie Black, ", "Diana White"],
+      "foodVendors": ["Tasty Bites, ", "Quick Snacks"],
+      "cost": 1350
+    }
+  ]
+}
