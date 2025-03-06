@@ -19,6 +19,7 @@ import { IoSchoolSharp } from "react-icons/io5";
 import { TbLockPassword } from "react-icons/tb";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { PiUsersThreeFill } from "react-icons/pi";
+import { MdOutlineSpeakerNotes } from "react-icons/md";
 
 const AdminSidebar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -74,6 +75,11 @@ const AdminSidebar = () => {
         { href: "/admin/user-permissions", text: "Permissions" },
         { href: "/admin/user-leaves", text: "Leaves" },
       ],
+    },
+    {
+      text: "Notice",
+      icon: <MdOutlineSpeakerNotes />,
+      href: "/admin/notice",
     },
   ];
 
